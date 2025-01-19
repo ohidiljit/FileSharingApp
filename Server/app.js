@@ -1,7 +1,7 @@
 const express = require("express");
 const multer = require("multer");
 const path = require("path");
-const fs = require("fs"); // Added this to fix fs issue
+const fs = require("fs");
 const session = require("express-session");
 
 const app = express();
@@ -43,6 +43,15 @@ function isAuthenticated(req, res, next) {
         return res.redirect("/login"); // Redirect to login if not logged in
     }
 }
+
+app.get("/index.html", (req, res) => {
+    // Assuming user is authenticated
+    if (req.session.user) {
+        res.sendFile(path.join(__dirname, "Client", "index.html")); // Serve index.html from Client folder
+    } else {
+        res.redirect("/login");
+    }
+});
 
 // Route to show the login page
 app.get("/login", (req, res) => {

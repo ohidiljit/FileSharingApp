@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>File Sharing Web App</title>
     <link href="styles/style.css" rel="stylesheet">
+    <!-- Add this inside the <head> tag for the font -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
@@ -25,9 +28,17 @@
                             <li><a class="dropdown-item" href="#" id="browseOption">Browse</a></li>
                         </ul>
                     </li>
-                 <!-- View Link -->
-                 <li class="nav-item">
-                    <a class="nav-link" href="/view">View</a>
+                    <!-- View Link -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="/view">View</a>
+                    </li>
+                    <li class="nav-link1">Connect</li>
+        
+                    <!-- Profile Icon -->
+                <ul class="nav-user ml-auto">
+                    <li class="nav-user">
+                    <a class="nav-link" href="#">
+                        <img src="https://www.w3schools.com/w3images/avatar2.png" alt="User Profile" class="rounded-circle" style="width: 40px; height: 40px;">
                     </a>
                 </li>
                 </ul>
@@ -35,9 +46,111 @@
         </div>
     </nav>
 
+    <!-- Main Heading above the Preview Container -->
+
+<div class="container mt-5">
+    <h2 class="main-heading">Preview</h2>
+</div>
+
+<!-- Preview Section (file details) -->
+<div class="preview-container">
+    <!-- File 1 Preview -->
+    <div class="file-item" id="file1">
+        <div class="file-details">
+            <div class="file-name">
+                <h3>File Name</h3>
+                <p>Sample File 1</p>
+            </div>
+            
+            <div class="file-date">
+                <h4>Date of Upload</h4>
+                <p>January 17, 2025</p>
+            </div>
+
+            <div class="file-size">
+                <h4>File Size</h4>
+                <p>1.2 MB</p>
+            </div>
+        </div>
+
+        <div class="file-actions">
+            <button>Download</button>
+            <button>Delete</button>
+        </div>
+    </div>
+
+    <!-- File 2 Preview -->
+    <div class="file-item" id="file2">
+        <div class="file-details">
+            <div class="file-name">
+                <h3>File Name</h3>
+                <p>Sample File 2</p>
+            </div>
+
+            <div class="file-date">
+                <h4>Date of Upload</h4>
+                <p>January 17, 2025</p>
+            </div>
+
+            <div class="file-size">
+                <h4>File Size</h4>
+                <p>3.4 MB</p>
+            </div>
+        </div>
+
+        <div class="file-actions">
+            <button>Download</button>
+            <button>Delete</button>
+        </div>
+    </div>
+</div>
+
+<h2 class="favorites-heading"> Your Favorites</h2>
+
+<button class="create-folder-btn">Create a Folder</button>
+<button class="add-file-btn">Add a File</button>
+
+<div class="modern-box"> 
+    <div class="file-list">
+        <div class="file-item folder">
+            <i class="fas fa-folder-open"></i> <!-- Simple folder icon -->
+            <span class="file-name">Folder 1</span>
+        </div>
+        <div class="divider"></div>
+        <div class="file-item">
+            <i class="fas fa-file"></i> <!-- Simple file icon -->
+            <span class="file-name">File 1.txt</span>
+        </div>
+        <div class="divider"></div>
+        <div class="file-item">
+            <i class="fas fa-file"></i> <!-- Simple file icon -->
+            <span class="file-name">File 2.txt</span>
+        </div>
+    </div>
+</div>
+
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <ul class="list-unstyled components">
+            <li>
+                <a href="/view">Recents</a>
+            </li>
+            <li>
+                <a href="#" id="uploadOption">Uploads</a>
+            </li>
+            <li>
+                <a href="#">Settings</a>
+            </li>
+            <li>
+                <a href="#">Logout</a>
+            </li>
+        </ul>
+    </div>
+
     <!-- File Upload Form -->
     <div class="container mt-3" id="uploadSection">
-        <form id="uploadForm" enctype="multipart/form-data" method="POST">  <!-- Ensure POST is specified -->
+        <form id="uploadForm" enctype="multipart/form-data" method="POST">
             <div class="form-group">
                 <input type="file" class="form-control" id="file" name="file" accept=".txt" required style="display: none;">
             </div>
@@ -61,6 +174,81 @@
             </div>
         </div>
     </div>
+
+    <!-- Popup Overlay -->
+    <div id="popup-overlay" class="overlay">
+        <div id="popup-box" class="popup">
+            <h2>Welcome!</h2>
+            <p>You have successfully logged in. Enjoy your experience!</p>
+            <button id="close-popup" class="close-btn">Close</button>
+        </div>
+    </div>
+
+    <!-- Content -->
+    <div id="content" class="content">
+        <!-- Your existing content (like the navigation bar and file upload form) will go here -->
+    </div>
+
+    
+   
+
+    <!-- Bottom Bar -->
+    <footer class="bottom-bar">
+        <div class="container">
+            <p class="text-center">© 2025 File Sharing Web App. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Floating Button -->
+    <button id="toggleFilesBtn" class="btn btn-primary">All Files</button>
+
+ <!-- All Files Section initially hidden -->
+<div class="container mt-3" id="allFilesSection" style="display: none;">
+    <button id="closeFilesBtn" class="close-btn">×</button>
+    <h3>All Files</h3>
+    <ul class="file-list">
+        <li>No files uploaded yet</li>
+    </ul>
+</div>
+
+
+
+
+    <!-- Scripts -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const toggleFilesBtn = document.getElementById("toggleFilesBtn");
+            const allFilesSection = document.getElementById("allFilesSection");
+            const closeFilesBtn = document.getElementById("closeFilesBtn");
+
+            if (toggleFilesBtn && allFilesSection && closeFilesBtn) {
+                toggleFilesBtn.addEventListener("click", function() {
+                    if (allFilesSection.style.display === "none" || allFilesSection.style.display === "") {
+                        allFilesSection.style.display = "block";
+                    } else {
+                        allFilesSection.style.display = "none";
+                    }
+                });
+
+                closeFilesBtn.addEventListener("click", function() {
+                    allFilesSection.style.display = "none";
+                });
+            } else {
+                console.error('Elements not found!');
+            }
+        });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const closeButton = document.getElementById('close-popup');
+            const popupOverlay = document.getElementById('popup-overlay');
+
+            closeButton.addEventListener('click', function () {
+                popupOverlay.style.display = 'none';
+            });
+        });
+    </script>
 
     <script src="scripts/uploadForm.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>

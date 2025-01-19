@@ -1,0 +1,694 @@
+/* Add styling for your dropdown and upload form */
+body {
+    font-family: Arial, sans-serif;
+}
+
+.navbar-brand {
+    font-weight: bold;
+}
+
+.container {
+    max-width: 600px;
+}
+
+#fileList {
+    margin-top: 20px;
+}
+
+/* Style for centering upload dropdown in navbar */
+.navbar {
+    position: fixed;
+    height: 80px;
+    background: linear-gradient(135deg, #6a11cb, #2575fc); /* Cool gradient */
+    border-radius: 0 0 1px 1px; /* Rounded bottom corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure the navbar stays above other content */
+}
+
+/* Navbar brand */
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+
+
+.navbar .d-flex {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.navbar .navbar-nav {
+    position: absolute;
+    right: 30%;  /* Adjust this value to move the dropdown further left or right */
+    top: 50%;     /* Adjust vertical positioning if needed */
+    transform: translateY(-50%);  /* Center vertically */
+}
+
+/* Dropdown menu styling */
+.navbar .dropdown-menu {
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Dropdown item styling */
+.navbar .dropdown-item {
+    padding: 10px 20px;
+    transition: background-color 0.3s;
+}
+
+/* Dropdown item hover effect */
+.navbar .dropdown-item:hover {
+    background-color: #ffdd57; /* Yellow background on hover */
+    color: #2f2f2f; /* Dark text on hover */
+}
+
+
+
+
+
+.navbar .nav-link {
+    color: #fff;
+    font-weight: bold;
+    transition: color 0.3s ease transform 0.2 ease;
+    margin-right: 100px;
+}
+
+.navbar .nav-link1{
+    position: relative;
+    color: #fff;
+    font-weight: bold;
+    transition: color 0.3s ease transform 0.2 ease;
+    margin-right: 100px;
+    top: 8.5px;
+
+}
+
+.navbar .nav-link:hover {
+    color: #ffdd57;
+    transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+
+.navbar .nav-link1:hover{
+    color: #ffdd57;
+    transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+/* Styling for the "Browse" button */
+#browseOption {
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    padding: 8px 15px;
+}
+
+#browseOption:hover {
+    background-color: #004085;
+    color: white;
+}
+
+#viewOption {
+    margin-left: 70px; /* Adjust the space as needed */
+}
+
+/* Pop-Up Overlay (Dimmed Background) */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black */
+    display: none; /* Hidden by default */
+    display: flex; /* Enable flexbox for centering */
+    align-items: center; /* Vertical centering */
+    justify-content: center; /* Horizontal centering */
+    z-index: 9999; /* Ensure it appears on top */
+}
+
+/* Pop-Up Box */
+.popup {
+    background-color: #2f2f2f; /* Dark grey background */
+    color: #fff; /* White text */
+    border-radius: 10px;
+    padding: 20px 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    max-width: 400px;
+    width: 90%; /* Responsive for smaller screens */
+    position: relative; /* Ensure proper stacking inside the overlay */
+    transform: translateY(-20%); /* Moves the pop-up slightly upwards */;
+    animation: fadeInUp 0.5s forwards; /* Apply the animation */
+
+}
+
+/* Keyframe for the fade-in and slide-up effect */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Close Button */
+.close-btn {
+    background-color: #007bff; /* Blue button */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.close-btn:hover {
+    background-color: black; /* Darker blue on hover */
+}
+
+/* Sidebar Styles */
+.sidebar {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 250px;
+    height: calc(100vh - 80px);
+    background-color: #343a40; /* Dark background color */
+    color: white;
+    padding-top: 30px;
+    transition: all 0.3s ease;
+    overflow-y: auto;
+    z-index: 999; /* Ensures the sidebar stays on top */
+}
+
+
+
+
+/* Sidebar Menu */
+.sidebar .components {
+    padding-left: 0;
+}
+
+.sidebar .components li {
+    padding: 10px;
+}
+
+.sidebar .components a {
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+/* Sidebar Link Hover Effect */
+.sidebar .components a:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    color: white;
+}
+
+/* Content Section */
+.content {
+    margin-left: 250px; /* Leave space for the sidebar */
+    padding: 20px;
+}
+
+/* Responsive Design - Sidebar Collapsing on Smaller Screens */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 0; /* Collapse sidebar */
+        overflow: hidden;
+    }
+
+    .content {
+        margin-left: 0;
+    }
+
+    .sidebar.active {
+        width: 250px; /* Expand sidebar when active */
+    }
+
+    .sidebar-header {
+        padding-left: 15px;
+    }
+
+    .sidebar .components a {
+        font-size: 16px;
+    }
+}
+
+/* Content Section */
+.content {
+    margin-left: 250px; /* Leave space for the sidebar */
+    padding: 20px;
+    padding-bottom: 80px;
+    margin-top: 80px; /* Add margin-top to avoid overlap with the navbar */
+}
+
+
+/* Bottom Bar Styling */
+.bottom-bar {
+    background: linear-gradient(to right, #0056b3, #007bff); /* Blue gradient */
+    color: white;
+    padding: 20px 0;
+    position: fixed;
+    left: 0;
+    width: 100%;
+    bottom: 0;
+    text-align: center;
+    z-index: 1000; /* Ensure it's on top */
+    box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow above footer */
+    font-size: 14px; /* Slightly smaller font for footer */
+    font-weight: bold;
+}
+
+/* Sidebar and Footer Interaction */
+.sidebar + .content {
+    padding-bottom: 80px; /* Ensure content is not hidden behind the footer */
+}
+
+/* Hover effect for bottom bar */
+.
+
+/* Text styling */
+.bottom-bar p {
+    margin: 0;
+    font-size: 16px;
+    letter-spacing: 1px;      /* Adds spacing between letters */
+    font-weight: 500;         /* Medium weight */
+}
+
+/* Small screen responsiveness */
+@media (max-width: 768px) {
+    .bottom-bar p {
+        font-size: 14px;        /* Slightly smaller font on smaller screens */
+    }
+}
+
+/* Floating Button Styling */
+
+#toggleFilesBtn {
+    position: fixed;
+    bottom: 10%; /* Slightly above the footer */
+    right: 5%; /* Move the button to the right */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 20px; /* Padding for horizontal and vertical space */
+    font-size: 14px; /* Adjusted font size */
+    font-weight: bold;
+    width: auto; /* Ensure the width is determined by the content inside */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+
+
+#toggleFilesBtn:hover {
+    background-color: #0056b3;
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+/* Hide All Files Section Initially */
+.hidden {
+    display: non;
+}
+
+#allFilesSection {
+    background-color: #f8f9fa; /* Light background to blend well */
+    border-left: 2px solid #ddd;
+    padding: 15px;
+    width: 400px; /* You can adjust the width to your preference */
+    position: fixed;/* Make it fixed to the left */
+    top: 500px;
+    right: 0;
+    bottom: 14%;
+    height: 59rem;
+    overflow-y: auto; /* Allow scrolling if file list grows long */
+    display: none; /* Initially hidden */
+    z-index: 999; /* Ensure it's above other content */
+    
+}
+
+#allFilesSection.open {
+    display: block;
+}
+
+
+#allFilesSection h3 {
+    font-size: 18px;
+    color: #0056b3;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.file-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    height: 100px;
+    overflow-y: auto;
+}
+
+.file-list li {
+    padding: 8px;
+    background: #e9ecef;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    color: #343a40;
+    font-size: 14px;
+    text-align: center;
+}
+
+.file-list li:hover {
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+#closeFilesBtn {
+    position: absolute;
+    left: 85%;
+    background: transparent;
+    border: none;
+    font-size: 35px;
+    color: #007bff;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    bottom: 95%;
+}
+
+#closeFilesBtn:hover {
+    color: #0056b3;
+    transform: scale(1.2);
+}
+
+.preview-container {
+    position: absolute;  /* Allow free positioning */
+    top: 200px;           /* Distance from the top of the screen */
+    left: 16.5rem;          /* Distance from the left of the screen */
+    right: 20px;         /* Distance from the right of the screen (optional) */
+    z-index: 100;        /* Ensure it's on top of other content */
+    border-radius: 7px;        /* Rounded corners */
+    padding: 10px;        /* Internal padding */
+    width: auto;   
+    background-color: #FEFEFA;
+          
+}
+
+
+.file-item {
+    position: relative;
+    display: flex; 
+    align-items: center; 
+    border-radius: 12px; /* Rounded corners */
+    background: linear-gradient(145deg, #f4f7fa, #e0e7ff); /* Subtle gradient */
+    padding: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    gap: 65rem;
+    transition: all 0.3s ease; /* Smooth transition for hover */
+}
+
+.file-item:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+}
+
+/* File details container */
+.file-details {
+    display: flex;
+    flex-direction: row; /* Align them horizontally */
+    justify-content: space-between; /* Distribute space evenly */
+    width: 100%; /* Ensure the container takes full width */
+    gap: 10px; /* Optional: Adds equal spacing between the items */
+}
+
+/* Each file detail section */
+.file-name, .file-date, .file-size {
+    flex: 1; /* Makes each section take equal space */
+}
+
+/* File actions container (buttons) */
+.file-actions {
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px; /* Space between the buttons */
+    right: 10px; /* Move the buttons to the right side */
+    z-index: 2; /* Ensure buttons stay on top of other content */
+
+}
+
+/* Card container */
+.card {
+    position: relative; /* Make the card the reference point for absolute positioning */
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    height: auto; /* Ensures the card height adjusts according to content */
+    background-color: #fff;
+    z-index: 1; /* Ensures card content stays above the buttons */
+}
+
+
+.file-actions button {
+    background-color: #4CAF50; /* Green background for modern look */
+    border: none;
+    box-sizing: border-box; /* Prevent padding from increasing button width */
+    color: white;
+    padding: 4px 9px;
+    font-size: 14px;
+    border-radius: 8px; /* Rounded buttons */
+    transition: background-color 0.3s ease;
+    display: block; /* Make sure buttons are displayed as block elements */
+    width: 100px; /* Ensure buttons are the same size */
+    margin-top: 2px;
+}
+
+.file-actions button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+.file-item h3,
+.file-item p {
+    margin-bottom: 5px; /* Reduced space between heading and content */
+    margin: 0; /* Remove default margin for cleaner spacing */
+}
+
+.file-details h3,
+.file-details p {
+    font-size: 16px;
+    color: #333; /* Darker text for readability */
+    margin-bottom: 5px; /* Reduced space between text elements */
+}
+
+.file-actions button:active {
+    transform: scale(0.98); /* Slightly shrink when clicked*/
+
+}
+/* Main Heading Styling */
+.main-heading {
+    position: relative;
+    font-size: 2rem;
+    text-align: left;
+    color: #333;
+    margin-bottom: 30px; /* Adjust margin to your preference */
+    font-weight: 600;
+    margin-top: 18px;
+    margin-left: none;
+}
+
+/* Responsive styling for smaller screens */
+@media (max-width: 768px) {
+    .main-heading {
+        font-size: 1.5rem;  /* Decrease font size on smaller screens */
+        margin-left: 10px;  /* Adjust the left margin */
+    }
+}
+
+@media (max-width: 480px) {
+    .main-heading {
+        font-size: 1.2rem;  /* Further decrease font size for very small screens */
+        margin-left: 5px;   /* Reduce left margin on very small screens */
+    }
+}
+
+/* Main Heading Styling */
+
+.favorites-heading {
+    position: relative;
+    font-size: 2rem;
+    text-align: left;
+    color: #333;
+    margin-bottom: 30px; /* Adjust margin to your preference */
+    font-weight: 600;
+    margin-top: 255px;
+    margin-left: 17.5rem;
+    position: relative;
+}
+
+.create-folder-btn{
+    position: absolute;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 0px;
+    top: 485px;
+    margin-left: 17.5rem;
+    padding: 10px 20px; /* Padding for horizontal and vertical space */
+    font-size: 14px; /* Adjusted font size */
+    font-weight: bold;
+    width: auto; /* Ensure the width is determined by the content inside */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.add-file-btn{
+    position: absolute;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 0px;
+    top: 485px;
+    margin-left: 28rem;
+    padding: 10px 20px; /* Padding for horizontal and vertical space */
+    font-size: 14px; /* Adjusted font size */
+    font-weight: bold;
+    width: auto; /* Ensure the width is determined by the content inside */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+
+}
+
+.modern-box {
+    background-color: #ffffff; /* Modern clean white background */
+    border: 1px solid #e0e0e0; /* Minimal and soft gray border */
+    border-radius: 10px; /* Rounded corners for a polished look */
+    padding: 20px; /* Comfortable internal spacing */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for subtle depth */
+    transition: box-shadow 0.3s ease, transform 0.3s ease; /* Smooth hover transition */
+    width: 72rem; /* Restrict max width for better proportions */
+    margin: 20px auto; /* Center horizontally and space vertically */
+    text-align: center; /* Center text and elements inside */
+    overflow-wrap: break-word; /* Prevent text overflow issues */
+    position: fixed; /* Enable absolute positioning */
+    top: 50%; /* Manually set top position (adjust this value) */
+    left: 16.5rem; /* Center horizontally */
+    height: 350px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.file-item, .file-item.folder {
+    all: unset; /* Remove all inherited styles */
+}
+
+
+.file-list {
+    
+    text-align: left;
+    flex: 1;
+    overflow-y: auto;
+    padding-left: 20px; /* Indent the file list slightly */
+}
+
+.file-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #333;
+    font-weight: 500;
+}
+
+.file-item i {
+    margin-right: 10px; /* Space between the icon and text */
+    font-size: 18px; /* Simple and clean icon size */
+    color: #007bff; /* Cool blue for the icons */
+}
+
+.file-item:hover {
+    transform: translateY(-5px); /* Same effect as the box */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+}
+
+
+.file-item.folder {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #333;
+    font-weight: 500; 
+}
+
+.divider {
+    margin: 5px 0;
+    border: 0;
+    border-top: 1px solid #e0e0e0; /* Thin line for differentiation */
+    opacity: 0.5; /* Subtle line */
+}
+
+/* Styling for file name text */
+.file-name {
+    font-size: 16px;
+    letter-spacing: 0.5px;
+}
+
+
+.sidebar ul {
+    display: flex;
+    flex-direction: column; /* Stack list items vertically */
+    gap: 50px; /* Adds equal space between each item */
+    padding: 0;
+    margin-left: 15px ;
+    margin-top: 40px;
+}
+
+.nav-user {
+    display: flex;
+    align-items: center;
+    border-radius: 50%; /* Ensures the image is round */
+    width: 40px; /* Set the width */
+    height: 40px; /* Set the height */
+    object-fit: cover; /* Ensures image is properly cropped to fit the circle */
+}
+
+/* Profile image styling */
+.nav-user img {
+    right: 0px;
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #007bff;  /* Optional: add a cool border around the image */
+}
+ .nav-user{
+    position: absolute;
+    top: 10px;   /* Adjust the top position */
+    left: 180%;   /* Center the image horizontally */
+    transform: translateX(-50%); /* Adjust for perfect centering */
+    width: 50px; /* Adjust size */
+    height: 5px; /* Keep the aspect ratio intact */
+
+
+ }
