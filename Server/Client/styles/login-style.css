@@ -1,0 +1,95 @@
+/* General body styling */
+body {
+    background-color: #343434; /* Black background */
+    color: #fff; /* White text */
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+/* Centered container for the login form */
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Login card styling */
+.login-card {
+    background-color: #2f2f2f; /* Blackish card color */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+    padding: 20px;
+    max-width: 400px; /* Restrict width */
+    width: 100%; /* Full width for small screens */
+    text-align: center;
+}
+
+.login-card label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1rem;
+    color: #fff;
+}
+
+/* Targeting only input elements inside .login-card to ensure no conflicts */
+.login-card input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #444; /* Subtle border */
+    border-radius: 5px;
+    background-color: #fff; /* Always white background */
+    color: #333; /* Dark text for contrast */
+    font-size: 1rem;
+    box-sizing: border-box; /* Ensure padding and border are inside the width */
+}
+
+/* Ensure the background color remains white when focused */
+.login-card input:focus {
+    outline: none;
+    background-color: #fff; /* White background */
+    border-color: #666; /* Subtle highlight border */
+}
+
+/* Button styling */
+.login-card button {
+    width: 100%;
+    padding: 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff; /* White text */
+    background-color: #007bff; /* Primary blue */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+}
+
+.login-card button:hover {
+    background-color: black; /* Darker blue on hover */
+}
+
+/* Label styling */
+label {
+    font-size: 30px; /* Adjust size of the label */
+    font-weight: bold; /* Bold text */
+    color: #ddd; /* Light grey color */
+    display: block; /* Full-width */
+    margin-top: 30px;
+    margin-bottom: 8px; /* Space below label */
+}
+
+/* For specific 'Username' and 'Password' labels */
+label[for="username"], label[for="password"] {
+    font-size: 20px; /* Adjust the size of the label */
+    font-weight: bold; /* Bold the text */
+    color: #ddd; /* Light grey color */
+    display: block; /* Full width */
+    margin-bottom: 7px; /* Space below the label */
+}

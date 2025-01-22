@@ -1,0 +1,34 @@
+# Node modules
+node_modules/
+
+# Logs
+*.log
+npm-debug.log
+
+# Environment files
+.env
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.AppleDouble
+.LSOverride
+
+# Build output
+build/
+dist/
+
+# IDE-specific files
+.vscode/
+.idea/
+
+# Test results
+test-results/
+
+# Optional: If you have a coverage folder
+coverage/
+
+# Security/Sensitive files (ex: keys, config)
+config.json
