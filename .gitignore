@@ -5,6 +5,9 @@ node_modules/
 *.log
 npm-debug.log
 
+Server/uploads/
+
+
 # Environment files
 .env
 
@@ -32,3 +35,14 @@ coverage/
 
 # Security/Sensitive files (ex: keys, config)
 config.json
+
+
+# Temporary files
+*.swp        # Vim swap files
+*.bak        # Backup files
+*.tmp        # Temporary files
+*.swpx       # Backup files created by some text editors
+*~           # Emacs backup files
+*.sublime-workspace   # Sublime Text workspace files
+*.sublime-project    # Sublime Text project files
+*.log.*      # Log files with extensions (e.g., .log.1, .log.gz)
