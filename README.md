@@ -26,6 +26,6 @@ To run this project locally, you will need to have the following installed:
    ```bash
    git clone https://github.com/<your-github-username>/<repository-name>.git
 
-
+Login Credentials
 username = "admin";
-const password = "password123"
+password = "password123"
